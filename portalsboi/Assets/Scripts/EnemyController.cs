@@ -21,8 +21,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     Sight obstacleSight;
 
-    Vector3 goalLocation;
-    Vector3 currentTargetLocation;
+    public Vector3 goalLocation;
+    public Vector3 currentTargetLocation;
     bool shouldMove = false;
     bool dead = false;
 
@@ -60,7 +60,7 @@ public class EnemyController : MonoBehaviour
         {
             var current = directlyInFront[i];
 
-            if (current.seen == true && current.tag == "Environment")
+            if (current.seen == true && current.tag == "walls")
             {
                 // we've got something blocking us
                 blocked = true;
@@ -91,7 +91,6 @@ public class EnemyController : MonoBehaviour
                 //goalLocation = Vector3.zero;
             }
         }
-
         else
         {
             currentTargetLocation = goalLocation;
@@ -109,7 +108,7 @@ public class EnemyController : MonoBehaviour
             //transform.LookAt(currentTargetLocation);
 
             Quaternion toRotation = Quaternion.LookRotation(currentTargetLocation - transform.position);
-            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, 0.5f * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, moveSpeed * Time.deltaTime);
         }
 
         if (!shouldMove && Vector3.Distance(transform.position, goalLocation) > meleeRange * 2)

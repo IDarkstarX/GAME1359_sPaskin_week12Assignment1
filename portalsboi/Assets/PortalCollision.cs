@@ -19,7 +19,7 @@ public class PortalCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player"|| other.tag == "Target")
         {
             objectInPortal = other.transform;
 
@@ -43,7 +43,7 @@ public class PortalCollision : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "Target")
         {
             objectInPortal = null;
         }
