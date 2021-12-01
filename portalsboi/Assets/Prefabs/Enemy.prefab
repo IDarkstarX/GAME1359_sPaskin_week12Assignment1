@@ -342,6 +342,8 @@ GameObject:
   - component: {fileID: 1978330492715941795}
   - component: {fileID: 1978330492715941794}
   - component: {fileID: 1978330492715941805}
+  - component: {fileID: 1167748594777893689}
+  - component: {fileID: 4561452301631897473}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -364,6 +366,7 @@ Transform:
   - {fileID: 4110964742748077114}
   - {fileID: 5813754216595726209}
   - {fileID: 394902929}
+  - {fileID: 334808422880703791}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -179.996, z: 0}
@@ -430,14 +433,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   meleeRange: 2
+  currentHealth: 3
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   environmentLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   player: {fileID: 0}
   obstacleSight: {fileID: 394902928}
+--- !u!114 &1167748594777893689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708298882722571695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d0268b1f257a94fbca7a8ad30ed70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 1686307489216701844, guid: ebdb150cb8f846345959318ddd438954, type: 3}
+  gunSource: {fileID: 2089327613000580885}
+  bulletSpeed: 10
+  canShoot: 0
+  fireRate: 1
+--- !u!114 &4561452301631897473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708298882722571695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99adbea745f8c0746be0d81f95ab0f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AIBody: {fileID: 0}
+  PlayerBody: {fileID: 0}
+  LPortal: {fileID: 0}
+  RPortal: {fileID: 0}
 --- !u!1 &1831649354607516344
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +505,36 @@ Transform:
   - {fileID: 4100298697874435414}
   m_Father: {fileID: 8739478925127590243}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1866211118684383754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 334808422880703791}
+  m_Layer: 0
+  m_Name: GUNSOURCE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &334808422880703791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866211118684383754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2089327613000580885}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1969449663034873351
 GameObject:

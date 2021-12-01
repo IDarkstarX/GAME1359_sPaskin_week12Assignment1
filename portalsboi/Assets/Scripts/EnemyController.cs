@@ -40,10 +40,13 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.rotation = Quaternion.Euler(0,
+                                                transform.rotation.eulerAngles.y,
+                                                0);
         if (dead)
-
+        {
             return;
-
+        }
         timeSinceHit += Time.deltaTime;
 
         goalLocation = FindObjectOfType<playerMovement>().transform.position;
@@ -57,7 +60,7 @@ public class EnemyController : MonoBehaviour
         {
             var current = directlyInFront[i];
 
-            if (current.seen == true && current.tag == "walls")
+            if (current.seen == true && current.tag == "Environment")
             {
                 // we've got something blocking us
                 blocked = true;
@@ -65,7 +68,7 @@ public class EnemyController : MonoBehaviour
 
         }
 
-        Debug.Log(blocked);
+        //Debug.Log(blocked);
 
         // if we're blocked, find the first sight that isn't obstructed and head that way
         if (blocked)

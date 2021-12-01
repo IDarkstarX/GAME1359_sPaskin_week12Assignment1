@@ -18,8 +18,9 @@ public class playerCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("HP: "+gameManager.instance.health);
-        Debug.Log("Lives: " + gameManager.instance.lives);
+        //Debug.Log("HP: "+gameManager.instance.health);
+        //Debug.Log("Lives: " + gameManager.instance.lives);
+        UpdateHUD();
     }
 
     private void FixedUpdate()

@@ -21,7 +21,7 @@ public class gameManager : MonoBehaviour
     [SerializeField]
     Vector3[] pickups;
 
-    void Start()
+    void Awake()
     {
         
         if(instance == null)
@@ -49,7 +49,7 @@ public class gameManager : MonoBehaviour
         timer = timer + Time.deltaTime;
 
         //Debug.Log(timer);
-
+        /*
         if(timer >= ammoRespawn)
         {
             Debug.Log("Respawn time!");
@@ -59,6 +59,7 @@ public class gameManager : MonoBehaviour
                 Instantiate(pickup, pickups[i], Quaternion.identity);
             }
         }
+        */
         /*
         if(score >= 3 && SceneManager.GetActiveScene().buildIndex != 2)
         {

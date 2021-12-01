@@ -33,6 +33,7 @@ public class Sight : MonoBehaviour
 
     public SightInformation[] GetSightInformation(float angle, int divisions, float range, Color color)
     {
+        GetComponentInParent<enemyShoot>().canShoot = false;
         List<SightInformation> sights = new List<SightInformation>();
 
         int directionToggle = 1;
@@ -60,6 +61,10 @@ public class Sight : MonoBehaviour
                 endPoint = hit.point;
                 s.tag = hit.transform.tag;
                 s.seen = true;
+                if(s.tag == "Player")
+                {
+                    GetComponentInParent<enemyShoot>().canShoot = true;
+                }
             }
 
             s.location = endPoint;
